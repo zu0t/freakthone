@@ -128,3 +128,8 @@ body {
     border-radius: 5px;
     margin-bottom: 20px;
 }
+
+.d {
+    background-color: greenyellow;
+    border: dotted, black;
+}
