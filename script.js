@@ -2,25 +2,24 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     event.preventDefault();
 
     const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    document.getElementById('username-error').textContent = '';
-    document.getElementById('password-error').textContent = '';
 
     if (!username) {
-        document.getElementById('username-error').textContent = 'Username is required';
-        return;
-    }
-
-    if (!password) {
-        document.getElementById('password-error').textContent = 'Password is required';
+        alert('Username is required');
         return;
     }
 
     document.getElementById('user-name').textContent = username;
-    document.getElementById('user-full-name').textContent = username;
 
-    const notification = document.getElementById('notification');
+    document.getElementById('login-page').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+
+    const notification = document.createElement('div');
+    notification.id = 'notification';
+    notification.textContent = '✅ Successfully logged in!';
+    notification.classList.add('hidden');
+
+    document.body.appendChild(notification);
+
     notification.classList.remove('hidden');
     notification.style.opacity = 1;
     notification.style.transform = 'translateY(0)';
@@ -29,10 +28,45 @@ document.getElementById('login-form').addEventListener('submit', function(event)
         notification.style.opacity = 0;
         notification.style.transform = 'translateY(-50px)';
         setTimeout(() => {
-            notification.classList.add('hidden');
+            notification.remove();
         }, 500);
     }, 3000);
-
-    document.getElementById('login-page').style.display = 'none';
-    document.getElementById('dashboard').style.display = 'block';
 });
+const ctx = document.getElementById('activityChart').getContext('2d');
+        const activityChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                datasets: [{
+                    label: 'User Activity',
+                    data: [120, 190, 300, 500, 200, 300, 400],
+                    borderColor: '#5323ff',
+                    backgroundColor: 'rgba(83, 35, 255, 0.2)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            color: '#fff'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#fff'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#fff'
+                        }
+                    }
+                }
+            }
+        });
