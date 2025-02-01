@@ -15,103 +15,89 @@
 </head>
 <body>
     <div class="login">
-    <div id="login-page">
-        <h2>Welcome Back</h2>
-        <p>Sign in below to continue to the dashboard.</p>
-        <form id="login-form">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter username" required>
-            <span id="username-error" class="error-message"></span>
-
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter password" required>
-            <span id="password-error" class="error-message"></span>
-            <button type="submit">Continue</button>
-        </form>
-        <p>Don't have an account? <a href="#">Sign Up</a></p>
-        <p>Account expired? <a href="#">Renew</a></p>
-        <p><a href="https://ko-fi.com/zuot_">DONATE</a></p>
-    </div>
-</div>
-
-    <div id="notification" class="hidden">
-        Successfully logged in!
-    </div>
-
-    <script src="script.js"></script>
-
-    <div id="dashboard" style="display: none;">
-        <div class="container">
-            <div class="sidebar">
-                <div class="logo">Freakthone</div>
-                <ul class="menu">
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Control Panel</a></li>
-                    <li><a href="#">Statistics</a></li>
-                    <li><a href="#">Raiding</a></li>
-                    <li><a href="#">Backups</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <div class="d">
-                    <b><li><a href="https://ko-fi.com/zuot_">DONATE</a></li></b></div>
-                </ul>
-            </div>
-            <div class="main-content">
-                <div class="header">
-                    <h1>Welcome, <span id="user-name">zuot</span></h1>
-                    <p>Here's what's going on today.</p>
-                </div>
-                <div class="user-info">
-                    <img src="./freakthone.png" alt="User Avatar">
-                    <div class="details">
-                        <h2 id="user-full-name">zuot</h2>
-                        <span>Online</span>
-                    </div>
-                </div>
-                <div class="stats">
-                    <div class="stat-box">
-                        <h3>Expiration</h3>
-                        <p>Lifetime</p>
-                    </div>
-                    <div class="stat-box">
-                        <h3>Total Users</h3>
-                        <p>420</p>
-                    </div>
-                    <div class="stat-box">
-                        <h3>Online Users</h3>
-                        <p>19</p>
-                    </div>
-                    <div class="stat-box">
-                        <h3>UID</h3>
-                        <p>-1</p>
-                    </div>
-                    <div class="stat-box">
-                        <h3>Version</h3>
-                        <p>5.0.0</p>
-                    </div>
-                </div>
-                <div class="charts">
-                    <div class="chart">
-                        <h3>Freakthone Activity</h3>
-                        <div class="chart-placeholder"></div>
-                    </div>
-                    <div class="chart">
-                        <h3>Server Usage</h3>
-                        <div class="server-usage-placeholder"></div>
-                    </div>
-                </div>
-                <div class="announcements">
-                    <h3>Announcements</h3>
-                    <p>Welcome to Freakthone 5.0!</p>
-                </div>
-                <div class="changelogs">
-                    <h3>Changelogs</h3>
-                    <p>5.0.0 - sex</p>
-                    <p>- floydsus command</p>
-                    <p>- token roullete</p>
-                    <p>- freakthone</p>
-                </div>
-            </div>
+        <div id="login-page">
+            <h2>Welcome Back</h2>
+            <p>Sign in below to continue to the dashboard.</p>
+            <form id="login-form">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter username" required>
+                <span id="username-error" class="error-message"></span>
+    
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" required>
+                <span id="password-error" class="error-message"></span>
+                <button type="submit">Continue</button>
+            </form>
+            <p>Don't have an account? <a href="#">Sign Up</a></p>
+            <p>Account expired? <a href="#">Renew</a></p>
+            <p><a href="https://ko-fi.com/zuot_">DONATE</a></p>
         </div>
     </div>
+
+    <main id="dashboard" style="display: none;">
+        <nav>
+            <h1>Freakthone</h1>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Control Panel</a></li>
+                <li><a href="#">Statistics</a></li>
+                <li><a href="#">Raiding</a></li>
+                <li><a href="#">Backups</a></li>
+                <li><a href="#">Settings</a></li>
+                <div class="d"><b><li><a href="https://ko-fi.com/zuot_">DONATE</a></li></b></div>
+            </div>    
+            </ul>
+        </nav>
+        <section class="welcome-section">
+            <div class="profile">
+                <img src="./freakthone.png" alt="Profile Picture">
+                <div class="profile-info">
+                    <h2>Welcome, <span id="user-name">zuot</span></h2>
+                    <p>Status: <span style="color: #0f0;">Online</span></p>
+                </div>
+            </div>
+            <h3>Here's what's going on today.</h3>
+        </section>
+        <section class="dashboard">
+            <div class="card">
+                <h3>Expiration</h3>
+                <p>Never</p>
+            </div>
+            <div class="card">
+                <h3>Total Users</h3>
+                <p>2437</p>
+            </div>
+            <div class="card">
+                <h3>Online Users</h3>
+                <p>30</p>
+            </div>
+            <div class="card">
+                <h3>Version</h3>
+                <p>4.0.7</p>
+            </div>
+        </section>
+        <section class="chart-container">
+            <div class="chart-wrapper">
+                <canvas id="activityChart" width="750" height="250"></canvas>
+            </div>
+            <div class="usage-container">
+                <h3>Server Usage</h3>
+                <div class="usage-bar">
+                    <span style="width: 65%;"></span>
+                </div>
+                <p>65% Used</p>
+            </div>
+        </section>
+        <section class="changelog">
+            <h3>Changelog</h3>
+            <ul>
+                <li>Added floydsus command.</li>
+                <li>Added token roullete.</li>
+                <li>Leaked all user data</li>
+            </ul>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
