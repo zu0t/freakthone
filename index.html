@@ -1,103 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
-    <link rel="icon" type="image/png" href="./freakthone.png" sizes="32x32">
-    <meta property="og:title" content="Freakthone" />
-    <meta property="og:description" content="Designed for straightforward Discord automation. Take control of your account quickly and with ease. Guaranteed safety with a powerful set of tools that go unnoticed. Boasting over 300 user-friendly features, all wrapped into one comprehensive tool." />
-    <meta property="og:image" content="./freakthone.png" />
-    <meta property="og:image:width" content="120" />
-    <meta property="og:image:height" content="120" />
-    <meta content="#c400ff" data-react-helmet="true" name="theme-color" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freakthone Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SYSTEM ANALYSIS</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+
+      font-family: 'Lucida Console', 'Courier New', monospace;
+    }
+
+    #background-video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      object-fit: cover;
+      display: none;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ccc;
+      font-size: 1.5em;
+      cursor: pointer;
+      text-align: center;
+      transition: opacity 0.3s ease-out;
+    }
+
+    #content-wrapper {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in;
+    }
+
+    #info-box {
+    padding: 20px 30px;
+    color: #d9d4a8;
+    text-align: center;
+    }
+
+
+    #info-box p {
+      margin: 8px 0;
+      font-size: 1.8em;
+      white-space: pre;
+    }
+
+  </style>
 </head>
 <body>
-    <div class="login">
-        <div id="login-page">
-            <h2>Welcome Back</h2>
-            <p>Sign in below to continue to the dashboard.</p>
-            <form id="login-form">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter username" required>
-                <span id="username-error" class="error-message"></span>
-    
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter password" required>
-                <span id="password-error" class="error-message"></span>
-                <button type="submit">Continue</button>
-            </form>
-            <p>Don't have an account? <a href="#">Sign Up</a></p>
-            <p>Account expired? <a href="#">Renew</a></p>
-            <p><a href="https://ko-fi.com/zuot_">DONATE</a></p>
-        </div>
-    </div>
 
-    <main id="dashboard" style="display: none;">
-        <nav>
-            <h1>Freakthone</h1>
-            <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Control Panel</a></li>
-                <li><a href="#">Statistics</a></li>
-                <li><a href="#">Raiding</a></li>
-                <li><a href="#">Backups</a></li>
-                <li><a href="#">Settings</a></li>
-                <div class="d"><b><li><a href="https://ko-fi.com/zuot_">DONATE</a></li></b></div>
-            </div>    
-            </ul>
-        </nav>
-        <section class="welcome-section">
-            <div class="profile">
-                <img src="./freakthone.png" alt="Profile Picture">
-                <div class="profile-info">
-                    <h2>Welcome, <span id="user-name">zuot</span></h2>
-                    <p>Status: <span style="color: #0f0;">Online</span></p>
-                </div>
-            </div>
-            <h3>Here's what's going on today.</h3>
-        </section>
-        <section class="dashboard">
-            <div class="card">
-                <h3>Expiration</h3>
-                <p>Never</p>
-            </div>
-            <div class="card">
-                <h3>Total Users</h3>
-                <p>2437</p>
-            </div>
-            <div class="card">
-                <h3>Online Users</h3>
-                <p>30</p>
-            </div>
-            <div class="card">
-                <h3>Version</h3>
-                <p>5.0.0</p>
-            </div>
-        </section>
-        <section class="chart-container">
-            <div class="chart-wrapper">
-                <canvas id="activityChart" width="750" height="250"></canvas>
-            </div>
-            <div class="usage-container">
-                <h3>Server Usage</h3>
-                <div class="usage-bar">
-                    <span style="width: 65%;"></span>
-                </div>
-                <p>65% Used</p>
-            </div>
-        </section>
-        <section class="changelog">
-            <h3>Changelog</h3>
-            <ul>
-                <li>Added floydsus command.</li>
-                <li>Added token roullete.</li>
-                <li>Leaked all user data</li>
-            </ul>
-        </section>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
+  <div id="overlay">
+    <p>CLICK ME :3</p>
+  </div>
+
+  <video id="background-video" loop playsinline>
+    <source src="./video.mp4" type="video/mp4" />
+    Váš prohlížeč nepodporuje přehrávání videa.
+  </video>
+
+  <div id="content-wrapper">
+    <div id="info-box"></div>
+  </div>
+
+  <script>
+    const overlay = document.getElementById('overlay');
+    const video = document.getElementById('background-video');
+    const contentWrapper = document.getElementById('content-wrapper');
+    const infoBox = document.getElementById('info-box');
+
+    const typeWriter = (element, text, speed, onComplete) => {
+      let i = 0;
+      element.innerHTML = '';
+      const type = () => {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        } else {
+          if (onComplete) onComplete();
+        }
+      };
+      type();
+    };
+
+    const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+    const generateFakeMAC = () =>
+      [...Array(6)].map(() => Math.floor(Math.random() * 256).toString(16).padStart(2, '0').toUpperCase()).join(':');
+    const generateFakeInternalIP = () => `192.168.${random(0, 1)}.${random(1, 254)}`;
+
+    async function getIpInfo() {
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        return {
+          ip: data.ip || 'N/A',
+          lat: data.latitude?.toFixed(4) || 'N/A',
+          lon: data.longitude?.toFixed(4) || 'N/A',
+          isp: data.org || 'N/A',
+          country: data.country_name || 'N/A',
+          city: data.city || 'N/A'
+        };
+      } catch {
+        return { ip: 'N/A', lat: 'N/A', lon: 'N/A', isp: 'N/A', country: 'N/A', city: 'N/A' };
+      }
+    }
+
+    async function getBatteryInfo() {
+      try {
+        if (!navigator.getBattery) return 'N/A';
+        const battery = await navigator.getBattery();
+        const level = `${Math.floor(battery.level * 100)}%`;
+        const status = battery.charging ? '(Charging)' : '(Discharging)';
+        return `${level} ${status}`;
+      } catch {
+        return 'N/A';
+      }
+    }
+
+    async function initialize() {
+      const requestFullScreen = () => {
+        const el = document.documentElement;
+        if (el.requestFullscreen) return el.requestFullscreen();
+        if (el.webkitRequestFullscreen) return el.webkitRequestFullscreen();
+        if (el.mozRequestFullScreen) return el.mozRequestFullScreen();
+        if (el.msRequestFullscreen) return el.msRequestFullscreen();
+      };
+      await requestFullScreen();
+
+      overlay.style.opacity = '0';
+      contentWrapper.style.opacity = '1';
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 300);
+
+      try {
+        video.style.display = 'block';
+        video.muted = false;
+        video.volume = 1.0;
+        await video.play();
+      } catch (e) {
+        console.error("Chyba při přehrávání videa:", e);
+      }
+
+      const [ipData, batteryData] = await Promise.all([getIpInfo(), getBatteryInfo()]);
+
+      const ua = navigator.userAgent;
+      const os = ua.includes("Win") ? "Windows" : ua.includes("Mac") ? "Macintosh" : ua.includes("Linux") ? "Linux" : ua.includes("Android") ? "Android" : "Unknown OS";
+      const browser = ua.match(/Firefox|SamsungBrowser|Opera|OPR|Edge|Chrome|Safari/)?.[0] || 'Unknown Browser';
+
+      const dataLines = [
+        `PUBLIC IP: ${ipData.ip}`,
+        `COORDS (N,W): ${ipData.lat}, ${ipData.lon}`,
+        `LOCATION: ${ipData.city}, ${ipData.country}`,
+        `PROVIDER: ${ipData.isp}`,
+        `CONNECTION: ${navigator.connection?.effectiveType || 'N/A'}`,
+        `CPU THREADS: ${navigator.hardwareConcurrency || 'N/A'}`,
+        `MEMORY (RAM): ~${navigator.deviceMemory || 'N/A'} GB`,
+        `SCREEN RES: ${window.screen.width}x${window.screen.height}`,
+        `COLOR DEPTH: ${window.screen.colorDepth}-bit`,
+        `BATTERY: ${batteryData}`,
+        `OPER. SYSTEM: ${os}`,
+        `BROWSER: ${browser}`,
+        `LANGUAGE: ${navigator.language}`,
+        `USER AGENT: ${navigator.userAgent}`,
+        ``,
+        `> SCANNING VULNERABILITIES (SIMULATED)...`,
+        `GATEWAY: ${generateFakeInternalIP()}`,
+        `MAC ADDRESS: ${generateFakeMAC()}`,
+        `TCP_PORTS: 80, 443 (OPEN)`,
+        `UDP_PORTS: 53 (OPEN)`,
+      ];
+
+      for (const line of dataLines) {
+        const p = document.createElement('p');
+        infoBox.appendChild(p);
+        await new Promise(resolve => typeWriter(p, line, 5, resolve));
+        await new Promise(res => setTimeout(res, line.trim() === '' ? 50 : 200));
+      }
+    }
+
+    overlay.addEventListener('click', initialize, { once: true });
+  </script>
 </body>
 </html>
